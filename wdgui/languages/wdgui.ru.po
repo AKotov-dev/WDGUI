@@ -61,7 +61,7 @@ msgstr "Прокси:"
 
 #: tconfigform.proxyedit.hint
 msgid "For example: http://127.0.0.1:8889"
-msgstr ""
+msgstr "Например: http://127.0.0.1:8889"
 
 #: tmainform.addbtn.hint
 msgctxt "tmainform.addbtn.hint"
@@ -69,7 +69,7 @@ msgid "Create a new folder"
 msgstr "Создать новый каталог"
 
 #: tmainform.caption
-msgid "Cadaver-GUI"
+msgid "WDGUI"
 msgstr ""
 
 #: tmainform.copyfrombucket.hint
@@ -170,3 +170,4 @@ msgstr "Перезаписать существующие объекты?"
 #: unit1.srename
 msgid "Rename an object"
 msgstr "Переименовать объект"
+

@@ -51,7 +51,7 @@ msgid "Create a new folder"
 msgstr ""
 
 #: tmainform.caption
-msgid "Cadaver-GUI"
+msgid "WDGUI"
 msgstr ""
 
 #: tmainform.copyfrombucket.hint

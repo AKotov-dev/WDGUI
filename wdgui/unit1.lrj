@@ -1,5 +1,5 @@
 {"version":1,"strings":[
-{"hash":210658841,"name":"tmainform.caption","sourcebytes":[67,97,100,97,118,101,114,45,71,85,73],"value":"Cadaver-GUI"},
+{"hash":5999769,"name":"tmainform.caption","sourcebytes":[87,68,71,85,73],"value":"WDGUI"},
 {"hash":90721266,"name":"tmainform.panel2.caption","sourcebytes":[80,97,110,101,108,50],"value":"Panel2"},
 {"hash":105368674,"name":"tmainform.groupbox1.caption","sourcebytes":[99,111,109,112,117,116,101,114],"value":"computer"},
 {"hash":187670852,"name":"tmainform.copyfrompc.hint","sourcebytes":[67,111,112,121,32,116,111,32,67,108,111,117,100],"value":"Copy to Cloud"},
