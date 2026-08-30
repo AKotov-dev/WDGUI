@@ -1,8 +1,8 @@
 [NAME]
-name=cadaver-gui
+name=wdgui
 
 [VERSION]
-version=1.1
+version=0.1
 
 [RELEASE]
 release=0.mrx10
@@ -11,7 +11,7 @@ release=0.mrx10
 group=Networking/File transfer
 
 [DESCRIPTION]
-0=GUI for cadaver - a command-line WebDAV client
+0=RClone WebDAV GUI
 1=---
 2=More information: /usr/share/doc/package_name/repack.txt
 
@@ -22,16 +22,16 @@ maintainer=Alex Kotov
 vendor=alex_q_2000 (C) 2026
 
 [SUMMARY]
-summary=GUI for cadaver - a command-line WebDAV client
+summary=RClone WebDAV GUI
 
 [URLCOPY]
-urlcopy=https://github.com/AKotov-dev/Cadaver-GUI
+urlcopy=https://github.com/AKotov-dev/WDGUI
 
 [LICENSE]
 license=GPLv3
 
 [DEPS]
-deps=cadaver libgtk2.0-0
+deps=rclone libgtk2.0-0
 
 [META]
 meta=0
@@ -43,16 +43,16 @@ noarch=0
 deb=1
 
 [FILES]
-0=/usr/share/cadaver-gui/
-1=/usr/share/doc/cadaver-gui/
-2=/usr/share/icons/cadaver-gui.png
-3=/usr/share/applications/cadaver-gui.desktop
+0=/usr/share/wdgui/
+1=/usr/share/doc/wdgui/
+2=/usr/share/pixmaps/wdgui.png
+3=/usr/share/applications/wdgui.desktop
 
 [URL32]
-url32=https://github.com/AKotov-dev/Cadaver-GUI
+url32=https://github.com/AKotov-dev/WDGUI
 
 [PROGRAMNAME]
-programname=Cadaver-GUI
+programname=wdgui
 
 [DEVTOOL]
 devtool=Lazarus
@@ -61,35 +61,8 @@ devtool=Lazarus
 toolversion=4.4
 
 [INFO]
-0=v1.1
+0=v0.1
 1=+ Build in Lazarus-4.4
-2=+ Connecting via HTTP proxy
+2=+ Connecting via proxy
 3=+ Koofr cloud storage has been added
-4=+ Move .netrc into program-specific directory (https://github.com/AKotov-dev/Cadaver-GUI/commit/032f9a53a191fe24ac35395dd2e89ad93851eb97)
-5=+ RPM-packages for Mageia-10, Ubuntu
-6=
-7=**Результаты тестирования WebDAV (2026)**
-8=- webdav.cloud.mail.ru - традиционный отстой, зависания, обрывы, < 8ГБ
-9=- webdav.yandex.ru - медленный, уверенный, иногда притормаживает, 2FA, = 15ГБ
-10=- app.koofr.net/dav/Koofr - стабильный, GDPR 2016/679, шифрование AES-256, 2FA, = 10ГБ
-11=
-12=v1.0
-13=+ Improved prioritization of processes
-14=+ RPM-packages for Mageia-8 (ROSA), Mageia-9, Ubuntu
-15=
-16=v0.9
-17=+ Cosmetic edits of the sources
-18=+ RPM-packages for Mageia-8 (ROSA), Mageia-9, Ubuntu
-19=
-20=v0.8
-21=+ Copying/Deleting files in one connection cycle
-22=+ RPM-packages for Mageia-8 (ROSA), Mageia-9, Ubuntu
-23=
-24=v0.6
-25=+ Improved getting a list of cloud files and folders
-26=+ RPM-packages for Mageia-8 (ROSA), Mageia-9, Ubuntu
-27=
-28=v0.5
-29=+ Improving copy operations
-30=+ Correction of the translation
-31=+ RPM-packages for Mageia-8/9
+4=+ RPM-packages for Mageia-10, Ubuntu
