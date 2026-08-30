@@ -48,9 +48,7 @@ begin
       ExProcess.Executable := 'rclone';
 
       ExProcess.Parameters.Add('--config');
-      ExProcess.Parameters.Add(
-        GetUserDir + '.config/wdgui/rclone.conf'
-        );
+      ExProcess.Parameters.Add(GetUserDir + '.config/wdgui/rclone.conf');
 
       ExProcess.Options := [poWaitOnExit, poUsePipes];
 

@@ -4,7 +4,7 @@ object MainForm: TMainForm
   Top = 125
   Width = 1005
   ActiveControl = CompDir
-  Caption = 'Cadaver-GUI'
+  Caption = 'WDGUI'
   ClientHeight = 694
   ClientWidth = 1005
   KeyPreview = True

@@ -72,9 +72,7 @@ type
 
 var
   left_panel: boolean;
-  // cmd: string;
-  proxy: string; //Сервер, прокси глобально
-  //  RcloneJobs: TStringList; //Список команд для потоков
+//  proxy: string; //Прокси глобально
 
 resourcestring
   SDelete = 'Delete selected objects?';

@@ -47,7 +47,7 @@ uses unit1;
 procedure TConfigForm.OkBtnClick(Sender: TObject);
 var
   S: TStringList;
-  password: string;
+  password, proxy: string;
 begin
   //Обновить правую панель, если подключение состоялось
   left_panel := False;
@@ -68,10 +68,10 @@ begin
 
     //proxy
     if ProxyEdit.Text <> '' then
-    begin
-      proxy := Trim(ProxyEdit.Text);
+//    begin
+//      proxy := Trim(ProxyEdit.Text);
       S.Add('override.http_proxy = ' + Trim(ProxyEdit.Text));
-    end
+//    end
     else
       proxy := '';
 
@@ -97,7 +97,7 @@ begin
   CloseAction := caFree;
 end;
 
-//Чтение параметров напрямую из .netrc и .cadaverrc
+//Чтение параметров напрямую из ~/.config/wdgui/rclone.conf
 procedure TConfigForm.FormShow(Sender: TObject);
 var
   password: string;

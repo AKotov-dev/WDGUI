@@ -47,7 +47,7 @@ uses unit1;
 procedure TConfigForm.OkBtnClick(Sender: TObject);
 var
   S: TStringList;
-  password: string;
+  password, proxy: string;
 begin
   //Обновить правую панель, если подключение состоялось
   left_panel := False;
@@ -68,10 +68,7 @@ begin
 
     //proxy
     if ProxyEdit.Text <> '' then
-    begin
-      proxy := Trim(ProxyEdit.Text);
-      S.Add('override.http_proxy = ' + Trim(ProxyEdit.Text));
-    end
+      S.Add('override.http_proxy = ' + Trim(ProxyEdit.Text))
     else
       proxy := '';
 

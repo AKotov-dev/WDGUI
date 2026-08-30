@@ -50,18 +50,15 @@ begin
       ExProcess.Parameters.Add('--config');
       ExProcess.Parameters.Add(
         GetUserDir + '.config/wdgui/rclone.conf'
-      );
+        );
 
-      ExProcess.Options := [
-        poWaitOnExit,
-        poUsePipes
-      ];
+      ExProcess.Options := [poWaitOnExit, poUsePipes];
 
       // ls текущего каталога
       ExProcess.Parameters.Add('lsf');
       ExProcess.Parameters.Add(
         'server:' + MainForm.GroupBox2.Caption
-      );
+        );
 
       ExProcess.Execute;
 
@@ -121,9 +118,9 @@ end;
 
 procedure StartLSFolder.SortSDBox;
 var
-  i, j: Integer;
+  i, j: integer;
   A, B: string;
-  AIsDir, BIsDir: Boolean;
+  AIsDir, BIsDir: boolean;
 begin
   with MainForm.SDBox.Items do
   begin
@@ -133,11 +130,9 @@ begin
         A := Strings[i];
         B := Strings[j];
 
-        AIsDir := (A <> '') and
-                  (A[Length(A)] = '/');
+        AIsDir := (A <> '') and (A[Length(A)] = '/');
 
-        BIsDir := (B <> '') and
-                  (B[Length(B)] = '/');
+        BIsDir := (B <> '') and (B[Length(B)] = '/');
 
         // Если A - файл, а B - каталог,
         // меняем их местами.
@@ -189,4 +184,3 @@ begin
 end;
 
 end.
-
