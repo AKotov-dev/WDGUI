@@ -61,7 +61,7 @@ msgstr "Прокси:"
 
 #: tconfigform.label5.caption
 msgid "Profile:"
-msgstr ""
+msgstr "Профиль:"
 
 #: tconfigform.passwordedit.hint
 msgid "Application Password"
@@ -186,4 +186,3 @@ msgstr "RClone не установлен!"
 #: unit1.srename
 msgid "Rename an object"
 msgstr "Переименовать объект"
-

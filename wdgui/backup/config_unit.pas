@@ -104,7 +104,6 @@ begin
   left_panel := False;
 
   //Пишем активный профиль в ~/.config/wdgui/wdgui.conf
-  // if FileExists(GetUserDir + '.config/wdgui/wdgui.conf') then
   with TIniFile.Create(GetUserDir + '.config/wdgui/wdgui.conf') do
   try
     WriteString('Settings', 'Profile', ProfileBox.Text);

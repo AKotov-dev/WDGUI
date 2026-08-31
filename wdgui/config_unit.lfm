@@ -1,10 +1,10 @@
 object ConfigForm: TConfigForm
   Left = 311
-  Height = 287
+  Height = 300
   Top = 128
   Width = 472
   Caption = 'Configuration'
-  ClientHeight = 287
+  ClientHeight = 300
   ClientWidth = 472
   KeyPreview = True
   LCLVersion = '4.4.0.0'
@@ -16,7 +16,7 @@ object ConfigForm: TConfigForm
     AnchorSideTop.Side = asrCenter
     Left = 8
     Height = 17
-    Top = 105
+    Top = 121
     Width = 37
     Caption = 'Login:'
     ParentColor = False
@@ -25,10 +25,10 @@ object ConfigForm: TConfigForm
     AnchorSideLeft.Control = PasswordEdit
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 74
+    Left = 77
     Height = 37
-    Top = 95
-    Width = 390
+    Top = 111
+    Width = 387
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Right = 8
     TabOrder = 2
@@ -38,7 +38,7 @@ object ConfigForm: TConfigForm
     AnchorSideTop.Side = asrCenter
     Left = 8
     Height = 17
-    Top = 145
+    Top = 161
     Width = 61
     Caption = 'Password:'
     ParentColor = False
@@ -48,13 +48,13 @@ object ConfigForm: TConfigForm
     AnchorSideLeft.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 74
+    Left = 77
     Height = 37
     Hint = 'Application Password'
-    Top = 135
-    Width = 390
+    Top = 151
+    Width = 387
     Anchors = [akTop, akLeft, akRight]
-    BorderSpacing.Left = 5
+    BorderSpacing.Left = 8
     BorderSpacing.Right = 8
     EchoMode = emPassword
     ParentShowHint = False
@@ -67,7 +67,7 @@ object ConfigForm: TConfigForm
     AnchorSideRight.Side = asrBottom
     Left = 352
     Height = 35
-    Top = 239
+    Top = 255
     Width = 112
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 8
@@ -82,7 +82,7 @@ object ConfigForm: TConfigForm
     AnchorSideRight.Control = OkBtn
     Left = 238
     Height = 35
-    Top = 239
+    Top = 255
     Width = 112
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 2
@@ -92,10 +92,11 @@ object ConfigForm: TConfigForm
     TabOrder = 5
   end
   object Label3: TLabel
+    AnchorSideTop.Control = ServerBox
     AnchorSideTop.Side = asrCenter
     Left = 8
     Height = 17
-    Top = 65
+    Top = 82
     Width = 40
     Caption = 'Server:'
     ParentColor = False
@@ -104,10 +105,10 @@ object ConfigForm: TConfigForm
     AnchorSideLeft.Control = PasswordEdit
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 74
+    Left = 77
     Height = 37
-    Top = 56
-    Width = 390
+    Top = 72
+    Width = 387
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Right = 8
     Enabled = False
@@ -124,7 +125,7 @@ object ConfigForm: TConfigForm
     AnchorSideTop.Side = asrCenter
     Left = 8
     Height = 17
-    Top = 199
+    Top = 215
     Width = 36
     Caption = 'Proxy:'
   end
@@ -132,11 +133,11 @@ object ConfigForm: TConfigForm
     AnchorSideLeft.Control = PasswordEdit
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 74
+    Left = 77
     Height = 37
     Hint = 'For example: http://127.0.0.1:8889'
-    Top = 189
-    Width = 390
+    Top = 205
+    Width = 387
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Right = 8
     ParentShowHint = False
@@ -146,16 +147,17 @@ object ConfigForm: TConfigForm
   object Label5: TLabel
     Left = 8
     Height = 17
-    Top = 24
+    Top = 8
     Width = 43
     Caption = 'Profile:'
   end
   object ProfileBox: TComboBox
     AnchorSideLeft.Control = PasswordEdit
-    Left = 74
+    Left = 8
     Height = 37
-    Top = 16
-    Width = 206
+    Top = 25
+    Width = 208
+    Anchors = [akTop]
     ItemHeight = 0
     Items.Strings = (
       'MAIL'
