@@ -84,6 +84,7 @@ resourcestring
   SNewBucket = 'Create a new directory';
   SBucketName = 'Directory name:';
   SRename = 'Rename an object';
+  SNoData = 'Server, Login, and Password are required!';
 
 var
   MainForm: TMainForm;

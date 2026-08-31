@@ -15,7 +15,7 @@ type
   TConfigForm = class(TForm)
     ProxyEdit: TEdit;
     Label4: TLabel;
-    ServerBox: TComboBox;
+    ServerEdit: TComboBox;
     Label3: TLabel;
     OkBtn: TBitBtn;
     CloseBtn: TBitBtn;
@@ -47,17 +47,26 @@ uses unit1;
 procedure TConfigForm.OkBtnClick(Sender: TObject);
 var
   S: TStringList;
-  password, proxy: string;
+  password: string;
 begin
+  if (Trim(ServerEdit.Text) = '') or (Trim(LoginEdit.Text) = '') or
+    (Trim(PasswordEdit.Text) = '') then
+  begin
+    MessageDlg(SNoData, mtWarning, [mbOK], 0);
+    ModalResult := 0;
+    Exit;
+  end;
+
   //Обновить правую панель, если подключение состоялось
   left_panel := False;
-  //Делаем новый ~/.netrc и сохраняем
+
+  //Делаем новый ~/.config/wdgui/rclone.conf и сохраняем
   try
     S := TStringList.Create;
     S.Add('[server]');
 
     S.Add('type = webdav');
-    S.Add('url = ' + Trim(ServerBox.Text));
+    S.Add('url = ' + Trim(ServerEdit.Text));
 
     S.Add('vendor = rclone');
     S.Add('user = ' + Trim(LoginEdit.Text));
@@ -68,9 +77,7 @@ begin
 
     //proxy
     if ProxyEdit.Text <> '' then
-      S.Add('override.http_proxy = ' + Trim(ProxyEdit.Text))
-    else
-      proxy := '';
+      S.Add('override.http_proxy = ' + Trim(ProxyEdit.Text));
 
     S.SaveToFile(GetUserDir + '.config/wdgui/rclone.conf');
 
@@ -106,7 +113,7 @@ begin
   if FileExists(GetUserDir + '.config/wdgui/rclone.conf') then
     with TIniFile.Create(GetUserDir + '.config/wdgui/rclone.conf') do
     try
-      ServerBox.Text := Trim(ReadString('server', 'url', ''));
+      ServerEdit.Text := Trim(ReadString('server', 'url', ''));
       LoginEdit.Text := Trim(ReadString('server', 'user', ''));
 
       //password

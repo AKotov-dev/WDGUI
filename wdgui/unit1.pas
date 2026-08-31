@@ -80,10 +80,11 @@ resourcestring
   SCreateDir = 'Create directory';
   SInputName = 'Enter the name:';
   SCancelCopyng = 'Esc - cancel... ';
-  SCloseQuery = 'Cadaver is active! Finish the process?';
+  SCloseQuery = 'RClone is active! Finish the process?';
   SNewBucket = 'Create a new directory';
   SBucketName = 'Directory name:';
   SRename = 'Rename an object';
+  SNoData = 'Server, Login, and Password are required!';
 
 var
   MainForm: TMainForm;

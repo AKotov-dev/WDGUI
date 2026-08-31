@@ -3,7 +3,7 @@ object ConfigForm: TConfigForm
   Height = 236
   Top = 160
   Width = 472
-  ActiveControl = ServerEdit
+  ActiveControl = ServerBox
   Caption = 'Configuration'
   ClientHeight = 236
   ClientWidth = 472
@@ -101,7 +101,7 @@ object ConfigForm: TConfigForm
     Caption = 'Server:'
     ParentColor = False
   end
-  object ServerEdit: TComboBox
+  object ServerBox: TComboBox
     AnchorSideLeft.Control = PasswordEdit
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom

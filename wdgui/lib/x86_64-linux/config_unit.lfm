@@ -3,7 +3,7 @@ object ConfigForm: TConfigForm
   Height = 236
   Top = 160
   Width = 472
-  ActiveControl = ServerBox
+  ActiveControl = ServerEdit
   Caption = 'Configuration'
   ClientHeight = 236
   ClientWidth = 472
@@ -51,13 +51,16 @@ object ConfigForm: TConfigForm
     AnchorSideRight.Side = asrBottom
     Left = 74
     Height = 37
+    Hint = 'Application Password'
     Top = 88
     Width = 390
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 5
     BorderSpacing.Right = 8
     EchoMode = emPassword
+    ParentShowHint = False
     PasswordChar = '*'
+    ShowHint = True
     TabOrder = 2
   end
   object OkBtn: TBitBtn
@@ -98,7 +101,7 @@ object ConfigForm: TConfigForm
     Caption = 'Server:'
     ParentColor = False
   end
-  object ServerBox: TComboBox
+  object ServerEdit: TComboBox
     AnchorSideLeft.Control = PasswordEdit
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom

@@ -59,6 +59,10 @@ msgstr "Сервер:"
 msgid "Proxy:"
 msgstr "Прокси:"
 
+#: tconfigform.passwordedit.hint
+msgid "Application Password"
+msgstr "Пароль приложения"
+
 #: tconfigform.proxyedit.hint
 msgid "For example: http://127.0.0.1:8889"
 msgstr "Например: http://127.0.0.1:8889"
@@ -139,8 +143,8 @@ msgid "Esc - cancel... "
 msgstr "Esc - отмена "
 
 #: unit1.sclosequery
-msgid "Cadaver is active! Finish the process?"
-msgstr "Cadaver активен! Завершить процесс?"
+msgid "RClone is active! Finish the process?"
+msgstr "RClone активен! Завершить процесс?"
 
 #: unit1.screatedir
 msgid "Create directory"
@@ -159,6 +163,10 @@ msgctxt "unit1.snewbucket"
 msgid "Create a new directory"
 msgstr "Создать новую директорию"
 
+#: unit1.snodata
+msgid "Server, Login, and Password are required!"
+msgstr "Сервер, Логин и Пароль являются обязательными!"
+
 #: unit1.sobjectexists
 msgid "The folder already exists!"
 msgstr "Каталог уже существует!"
@@ -170,4 +178,3 @@ msgstr "Перезаписать существующие объекты?"
 #: unit1.srename
 msgid "Rename an object"
 msgstr "Переименовать объект"
-

@@ -41,6 +41,10 @@ msgstr ""
 msgid "Proxy:"
 msgstr ""
 
+#: tconfigform.passwordedit.hint
+msgid "Application Password"
+msgstr ""
+
 #: tconfigform.proxyedit.hint
 msgid "For example: http://127.0.0.1:8889"
 msgstr ""
@@ -121,7 +125,7 @@ msgid "Esc - cancel... "
 msgstr ""
 
 #: unit1.sclosequery
-msgid "Cadaver is active! Finish the process?"
+msgid "RClone is active! Finish the process?"
 msgstr ""
 
 #: unit1.screatedir
@@ -139,6 +143,10 @@ msgstr ""
 #: unit1.snewbucket
 msgctxt "unit1.snewbucket"
 msgid "Create a new directory"
+msgstr ""
+
+#: unit1.snodata
+msgid "Server, Login, and Password are required!"
 msgstr ""
 
 #: unit1.sobjectexists

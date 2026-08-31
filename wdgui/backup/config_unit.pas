@@ -47,11 +47,20 @@ uses unit1;
 procedure TConfigForm.OkBtnClick(Sender: TObject);
 var
   S: TStringList;
-  password, proxy: string;
+  password: string;
 begin
+  if (Trim(ServerBox.Text) = '') or (Trim(LoginEdit.Text) = '') or
+    (Trim(PasswordEdit.Text) = '') then
+  begin
+    MessageDlg('111', mtWarning, [mbOK], 0);
+    ModalResult := 0;
+    Exit;
+  end;
+
   //Обновить правую панель, если подключение состоялось
   left_panel := False;
-  //Делаем новый ~/.netrc и сохраняем
+
+  //Делаем новый ~/.config/wdgui/rclone.conf и сохраняем
   try
     S := TStringList.Create;
     S.Add('[server]');
@@ -68,12 +77,7 @@ begin
 
     //proxy
     if ProxyEdit.Text <> '' then
-//    begin
-//      proxy := Trim(ProxyEdit.Text);
       S.Add('override.http_proxy = ' + Trim(ProxyEdit.Text));
-//    end
-    else
-      proxy := '';
 
     S.SaveToFile(GetUserDir + '.config/wdgui/rclone.conf');
 
