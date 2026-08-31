@@ -12,4 +12,4 @@ After launching, click the `Gear` and enter the `Server` (you can choose from th
   
 ![](https://github.com/AKotov-dev/WDGUI/blob/main/Snapshot2.png)
   
-If there was nothing better at hand, this tool can be useful for sharing work with small files.
+If you don't have anything better at hand, this tool can come in handy for the job.
