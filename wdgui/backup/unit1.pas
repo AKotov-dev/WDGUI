@@ -107,7 +107,7 @@ var
 begin
   Version := '';
 
-  Result := RunCommand('rclone1', ['--version'], FullOutput, [poWaitOnExit, poUsePipes]);
+  Result := RunCommand('rclone', ['--version'], FullOutput, [poWaitOnExit, poUsePipes]);
 
   if not Result then Exit;
 
@@ -663,9 +663,9 @@ begin
   CompDir.Root := ExcludeTrailingPathDelimiter(GetUserDir);
   CompDir.Items.Item[0].Selected := True;
 
-  //Директория конфигураций
+  //Директория конфигураций и профилей
   if not DirectoryExists(GetUserDir + '.config/wdgui') then
-    ForceDirectories(GetUserDir + '.config/wdgui');
+    ForceDirectories(GetUserDir + '.config/wdgui/profiles');
 
   IniPropStorage1.IniFileName := GetUserDir + '.config/wdgui/wdgui.conf';
 end;

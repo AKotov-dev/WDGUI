@@ -1,11 +1,11 @@
 object ConfigForm: TConfigForm
-  Left = 340
-  Height = 236
-  Top = 160
+  Left = 311
+  Height = 287
+  Top = 128
   Width = 472
-  ActiveControl = ServerEdit
+  ActiveControl = ServerBox
   Caption = 'Configuration'
-  ClientHeight = 236
+  ClientHeight = 287
   ClientWidth = 472
   KeyPreview = True
   LCLVersion = '4.4.0.0'
@@ -17,7 +17,7 @@ object ConfigForm: TConfigForm
     AnchorSideTop.Side = asrCenter
     Left = 8
     Height = 17
-    Top = 58
+    Top = 105
     Width = 37
     Caption = 'Login:'
     ParentColor = False
@@ -28,7 +28,7 @@ object ConfigForm: TConfigForm
     AnchorSideRight.Side = asrBottom
     Left = 74
     Height = 37
-    Top = 48
+    Top = 95
     Width = 390
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Right = 8
@@ -39,7 +39,7 @@ object ConfigForm: TConfigForm
     AnchorSideTop.Side = asrCenter
     Left = 8
     Height = 17
-    Top = 98
+    Top = 145
     Width = 61
     Caption = 'Password:'
     ParentColor = False
@@ -52,7 +52,7 @@ object ConfigForm: TConfigForm
     Left = 74
     Height = 37
     Hint = 'Application Password'
-    Top = 88
+    Top = 135
     Width = 390
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 5
@@ -66,10 +66,10 @@ object ConfigForm: TConfigForm
   object OkBtn: TBitBtn
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 354
+    Left = 352
     Height = 35
-    Top = 192
-    Width = 110
+    Top = 239
+    Width = 112
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 8
     Default = True
@@ -81,10 +81,10 @@ object ConfigForm: TConfigForm
   end
   object CloseBtn: TBitBtn
     AnchorSideRight.Control = OkBtn
-    Left = 242
+    Left = 238
     Height = 35
-    Top = 192
-    Width = 110
+    Top = 239
+    Width = 112
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 2
     DefaultCaption = True
@@ -96,18 +96,18 @@ object ConfigForm: TConfigForm
     AnchorSideTop.Side = asrCenter
     Left = 8
     Height = 17
-    Top = 18
+    Top = 65
     Width = 40
     Caption = 'Server:'
     ParentColor = False
   end
-  object ServerEdit: TComboBox
+  object ServerBox: TComboBox
     AnchorSideLeft.Control = PasswordEdit
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 74
     Height = 37
-    Top = 9
+    Top = 56
     Width = 390
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Right = 8
@@ -115,7 +115,6 @@ object ConfigForm: TConfigForm
     Items.Strings = (
       'https://webdav.yandex.ru'
       'https://webdav.cloud.mail.ru'
-      'https://app.koofr.net/dav'
       'https://app.koofr.net/dav/Koofr'
     )
     TabOrder = 0
@@ -125,7 +124,7 @@ object ConfigForm: TConfigForm
     AnchorSideTop.Side = asrCenter
     Left = 8
     Height = 17
-    Top = 152
+    Top = 199
     Width = 36
     Caption = 'Proxy:'
   end
@@ -136,12 +135,35 @@ object ConfigForm: TConfigForm
     Left = 74
     Height = 37
     Hint = 'For example: http://127.0.0.1:8889'
-    Top = 142
+    Top = 189
     Width = 390
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Right = 8
     ParentShowHint = False
     ShowHint = True
     TabOrder = 3
+  end
+  object Label5: TLabel
+    Left = 8
+    Height = 17
+    Top = 24
+    Width = 44
+    Caption = 'Service:'
+  end
+  object ProfileBox: TComboBox
+    AnchorSideLeft.Control = PasswordEdit
+    Left = 74
+    Height = 37
+    Top = 16
+    Width = 206
+    ItemHeight = 0
+    Items.Strings = (
+      'MAIL'
+      'KOOFR'
+      'YANDEX'
+    )
+    ReadOnly = True
+    TabOrder = 6
+    OnChange = ProfileBoxChange
   end
 end

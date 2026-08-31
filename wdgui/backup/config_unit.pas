@@ -13,6 +13,8 @@ type
   { TConfigForm }
 
   TConfigForm = class(TForm)
+    ProfileBox: TComboBox;
+    Label5: TLabel;
     ProxyEdit: TEdit;
     Label4: TLabel;
     ServerBox: TComboBox;
@@ -27,6 +29,10 @@ type
     procedure FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure OkBtnClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure ProfileBoxChange(Sender: TObject);
+    procedure ReadProfile(Profile: string);
+
+
   private
 
   public
@@ -44,6 +50,38 @@ uses unit1;
 
   { TConfigForm }
 
+//Чтение выбранного профиля
+procedure TConfigForm.ReadProfile(Profile: string);
+var
+  password: string;
+begin
+  //Читаем рабочий профиль в rclone.conf
+  if FileExists(GetUserDir + '.config/wdgui/profiles/' + Profile) then
+    with TIniFile.Create(GetUserDir + '.config/wdgui/profiles/' + Profile) do
+    try
+      ServerBox.Text := Trim(ReadString('server', 'url', ''));
+      LoginEdit.Text := Trim(ReadString('server', 'user', ''));
+
+      //password
+      if RunCommand('rclone', ['reveal', Trim(ReadString('server', 'pass', ''))],
+        password) then
+        PasswordEdit.Text := Trim(password);
+
+      //proxy
+      ProxyEdit.Text := Trim(ReadString('server', 'override.http_proxy', ''));
+    finally
+      Free;
+    end
+  else
+  begin
+    ServerBox.Text := '';
+    LoginEdit.Clear;
+    PasswordEdit.Clear;
+    ProxyEdit.Clear;
+  end;
+end;
+
+//Запись настроек в профильный файл и рабочий rclone.conf
 procedure TConfigForm.OkBtnClick(Sender: TObject);
 var
   S: TStringList;
@@ -52,7 +90,7 @@ begin
   if (Trim(ServerBox.Text) = '') or (Trim(LoginEdit.Text) = '') or
     (Trim(PasswordEdit.Text) = '') then
   begin
-    MessageDlg('111', mtWarning, [mbOK], 0);
+    MessageDlg(SNoData, mtWarning, [mbOK], 0);
     ModalResult := 0;
     Exit;
   end;
@@ -60,7 +98,16 @@ begin
   //Обновить правую панель, если подключение состоялось
   left_panel := False;
 
-  //Делаем новый ~/.config/wdgui/rclone.conf и сохраняем
+  //Пишем активный профиль в ~/.config/wdgui/wdgui.conf
+ // if FileExists(GetUserDir + '.config/wdgui/wdgui.conf') then
+    with TIniFile.Create(GetUserDir + '.config/wdgui/wdgui.conf') do
+    try
+      WriteString('Settings', 'Profile', ProfileBox.Text);
+    finally
+      Free;
+    end;
+
+  //Делаем новый ~/.config/wdgui/profiles/ProfileBox.Text и сохраняем
   try
     S := TStringList.Create;
     S.Add('[server]');
@@ -79,6 +126,7 @@ begin
     if ProxyEdit.Text <> '' then
       S.Add('override.http_proxy = ' + Trim(ProxyEdit.Text));
 
+    S.SaveToFile(GetUserDir + '.config/wdgui/profiles/' + ProfileBox.Text);
     S.SaveToFile(GetUserDir + '.config/wdgui/rclone.conf');
 
     //Пробуем открыть корень облака
@@ -103,28 +151,33 @@ end;
 
 //Чтение параметров напрямую из ~/.config/wdgui/rclone.conf
 procedure TConfigForm.FormShow(Sender: TObject);
-var
-  password: string;
 begin
   //В центр
   ConfigForm.Left := MainForm.Left + MainForm.Width div 2 - ConfigForm.Width div 2;
   ConfigForm.Top := MainForm.Top + MainForm.Height div 2 - ConfigForm.Height div 2;
 
-  if FileExists(GetUserDir + '.config/wdgui/rclone.conf') then
-    with TIniFile.Create(GetUserDir + '.config/wdgui/rclone.conf') do
+  //Читаем имя активного профиля
+  if FileExists(GetUserDir + '.config/wdgui/wdgui.conf') then
+    with TIniFile.Create(GetUserDir + '.config/wdgui/wdgui.conf') do
     try
-      ServerBox.Text := Trim(ReadString('server', 'url', ''));
-      LoginEdit.Text := Trim(ReadString('server', 'user', ''));
-
-      //password
-      if RunCommand('rclone', ['reveal', Trim(ReadString('server', 'pass', ''))],
-        password) then
-        PasswordEdit.Text := Trim(password);
-
-      ProxyEdit.Text := Trim(ReadString('server', 'override.http_proxy', ''));
+      ProfileBox.Text := ReadString('Settings', 'Profile', 'MAIL');
+      ReadProfile(ProfileBox.Text);
     finally
       Free;
     end;
+end;
+
+//Выбор-Чтение профиля и предустановка URL сервера
+procedure TConfigForm.ProfileBoxChange(Sender: TObject);
+begin
+  ReadProfile(ProfileBox.Text);
+  case ProfileBox.Text of
+    'MAIL': ServerBox.ItemIndex := 1;
+    'KOOFR': ServerBox.ItemIndex := 2;
+    'YANDEX': ServerBox.ItemIndex := 3;
+    else
+      ServerBox.Text := '';
+  end;
 end;
 
 end.

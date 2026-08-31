@@ -663,9 +663,9 @@ begin
   CompDir.Root := ExcludeTrailingPathDelimiter(GetUserDir);
   CompDir.Items.Item[0].Selected := True;
 
-  //Директория конфигураций
-  if not DirectoryExists(GetUserDir + '.config/wdgui') then
-    ForceDirectories(GetUserDir + '.config/wdgui');
+  //Директория конфигураций и профилей
+  if not DirectoryExists(GetUserDir + '.config/wdgui/profiles') then
+    ForceDirectories(GetUserDir + '.config/wdgui/profiles');
 
   IniPropStorage1.IniFileName := GetUserDir + '.config/wdgui/wdgui.conf';
 end;

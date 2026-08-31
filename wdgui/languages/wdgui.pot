@@ -41,6 +41,10 @@ msgstr ""
 msgid "Proxy:"
 msgstr ""
 
+#: tconfigform.label5.caption
+msgid "Service:"
+msgstr ""
+
 #: tconfigform.passwordedit.hint
 msgid "Application Password"
 msgstr ""
