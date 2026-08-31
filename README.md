@@ -9,3 +9,7 @@ RClone WebDAV GUI
 **Configuration files:** ~/.config/wdgui{rclone.conf,wdgui.conf}
 
 After launching, click the `Gear` and enter the `Server` (you can choose from the list), `Login` (for example, this is mail) and `Password` (for example, Mail.ru - this is the password of external applications).
+  
+![](https://github.com/AKotov-dev/WDGUI/blob/main/Snapshot2.png)
+  
+If there was nothing better at hand, this tool can be useful for sharing work with small files.
