@@ -10,6 +10,6 @@ RClone WebDAV GUI
 
 After launching, click the `Gear` and enter the `Server` (you can choose from the list), `Login` (for example, this is mail) and `Password` (for example, Mail.ru - this is the password of external applications).
   
-![](https://github.com/AKotov-dev/WDGUI/blob/main/Snapshot2.png)
+![](https://github.com/AKotov-dev/WDGUI/blob/main/Screenshot1.png)
   
 If you don't have anything better at hand, this tool can come in handy for the job.
