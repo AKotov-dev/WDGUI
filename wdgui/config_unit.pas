@@ -34,6 +34,8 @@ type
 
 
   private
+  var
+    OtherServerURL: string;
 
   public
 
@@ -69,6 +71,9 @@ begin
 
       //proxy
       ProxyEdit.Text := Trim(ReadString('server', 'override.http_proxy', ''));
+
+      //Запоминаем несуществующий в списках url для профиля OTHER (для перемотки)
+      if ProfileBox.Text = 'OTHER' then OtherServerURL := ServerBox.Text;
     finally
       Free;
     end
@@ -99,7 +104,6 @@ begin
   left_panel := False;
 
   //Пишем активный профиль в ~/.config/wdgui/wdgui.conf
-  // if FileExists(GetUserDir + '.config/wdgui/wdgui.conf') then
   with TIniFile.Create(GetUserDir + '.config/wdgui/wdgui.conf') do
   try
     WriteString('Settings', 'Profile', ProfileBox.Text);
@@ -162,6 +166,8 @@ begin
     try
       ProfileBox.Text := ReadString('Settings', 'Profile', 'MAIL');
       ReadProfile(ProfileBox.Text);
+
+      if ProfileBox.Text = 'OTHER' then ServerBox.Enabled := True;
     finally
       Free;
     end;
@@ -171,10 +177,18 @@ end;
 procedure TConfigForm.ProfileBoxChange(Sender: TObject);
 begin
   ReadProfile(ProfileBox.Text);
+
+  ServerBox.Enabled := False;
+
   case ProfileBox.Text of
     'MAIL': ServerBox.ItemIndex := 1;
     'KOOFR': ServerBox.ItemIndex := 2;
     'YANDEX': ServerBox.ItemIndex := 3;
+    'OTHER':
+    begin
+      ServerBox.Text := OtherServerURL;
+      ServerBox.Enabled := True;
+    end;
     else
       ServerBox.Text := '';
   end;

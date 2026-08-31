@@ -60,7 +60,7 @@ msgid "Proxy:"
 msgstr "Прокси:"
 
 #: tconfigform.label5.caption
-msgid "Service:"
+msgid "Profile:"
 msgstr ""
 
 #: tconfigform.passwordedit.hint

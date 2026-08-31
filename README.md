@@ -9,7 +9,7 @@ RClone WebDAV GUI
 **Prifile files:** ~/.config/wdgui/profiles/  
 **Configuration files:** ~/.config/wdgui{rclone.conf,wdgui.conf}
 
-After launching, click the “Gear” button, select a `Profile`, and enter the `Server` (it will be set automatically, but you can select it from the list or change it to your own), the `Login` (for example, this is an email address), the `Password` (for example, Mail.ru is the password for external applications), `Proxy` (if necessary), and then click “OK”.
+After launching, click the “Gear” button, select a `Profile`, and enter the `Server` (it will be set automatically), the `Login` (for example, this is an email address), the `Password` (for example, Mail.ru is the password for external applications), `Proxy` (if necessary), and then click “OK”.
   
 ![](https://github.com/AKotov-dev/WDGUI/blob/main/Screenshot1.png)
   

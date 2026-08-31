@@ -6,5 +6,5 @@
 {"hash":164219914,"name":"tconfigform.label3.caption","sourcebytes":[83,101,114,118,101,114,58],"value":"Server:"},
 {"hash":91844554,"name":"tconfigform.label4.caption","sourcebytes":[80,114,111,120,121,58],"value":"Proxy:"},
 {"hash":196523337,"name":"tconfigform.proxyedit.hint","sourcebytes":[70,111,114,32,101,120,97,109,112,108,101,58,32,104,116,116,112,58,47,47,49,50,55,46,48,46,48,46,49,58,56,56,56,57],"value":"For example: http://127.0.0.1:8889"},
-{"hash":211614746,"name":"tconfigform.label5.caption","sourcebytes":[83,101,114,118,105,99,101,58],"value":"Service:"}
+{"hash":157091834,"name":"tconfigform.label5.caption","sourcebytes":[80,114,111,102,105,108,101,58],"value":"Profile:"}
 ]}

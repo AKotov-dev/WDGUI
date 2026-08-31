@@ -3,7 +3,6 @@ object ConfigForm: TConfigForm
   Height = 287
   Top = 128
   Width = 472
-  ActiveControl = ServerBox
   Caption = 'Configuration'
   ClientHeight = 287
   ClientWidth = 472
@@ -32,7 +31,7 @@ object ConfigForm: TConfigForm
     Width = 390
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Right = 8
-    TabOrder = 1
+    TabOrder = 2
   end
   object Label2: TLabel
     AnchorSideTop.Control = PasswordEdit
@@ -61,7 +60,7 @@ object ConfigForm: TConfigForm
     ParentShowHint = False
     PasswordChar = '*'
     ShowHint = True
-    TabOrder = 2
+    TabOrder = 3
   end
   object OkBtn: TBitBtn
     AnchorSideRight.Control = Owner
@@ -76,7 +75,7 @@ object ConfigForm: TConfigForm
     DefaultCaption = True
     Kind = bkOK
     ModalResult = 1
-    TabOrder = 5
+    TabOrder = 6
     OnClick = OkBtnClick
   end
   object CloseBtn: TBitBtn
@@ -90,7 +89,7 @@ object ConfigForm: TConfigForm
     DefaultCaption = True
     Kind = bkClose
     ModalResult = 11
-    TabOrder = 4
+    TabOrder = 5
   end
   object Label3: TLabel
     AnchorSideTop.Side = asrCenter
@@ -111,13 +110,14 @@ object ConfigForm: TConfigForm
     Width = 390
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Right = 8
+    Enabled = False
     ItemHeight = 0
     Items.Strings = (
       'https://webdav.yandex.ru'
       'https://webdav.cloud.mail.ru'
       'https://app.koofr.net/dav/Koofr'
     )
-    TabOrder = 0
+    TabOrder = 1
   end
   object Label4: TLabel
     AnchorSideTop.Control = ProxyEdit
@@ -141,14 +141,14 @@ object ConfigForm: TConfigForm
     BorderSpacing.Right = 8
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 3
+    TabOrder = 4
   end
   object Label5: TLabel
     Left = 8
     Height = 17
     Top = 24
-    Width = 44
-    Caption = 'Service:'
+    Width = 43
+    Caption = 'Profile:'
   end
   object ProfileBox: TComboBox
     AnchorSideLeft.Control = PasswordEdit
@@ -161,9 +161,10 @@ object ConfigForm: TConfigForm
       'MAIL'
       'KOOFR'
       'YANDEX'
+      'OTHER'
     )
     ReadOnly = True
-    TabOrder = 6
+    TabOrder = 0
     OnChange = ProfileBoxChange
   end
 end
