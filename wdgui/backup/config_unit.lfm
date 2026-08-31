@@ -1,10 +1,10 @@
 object ConfigForm: TConfigForm
-  Left = 311
-  Height = 301
-  Top = 128
+  Left = 312
+  Height = 300
+  Top = 127
   Width = 472
   Caption = 'Configuration'
-  ClientHeight = 301
+  ClientHeight = 300
   ClientWidth = 472
   KeyPreview = True
   LCLVersion = '4.4.0.0'
@@ -38,7 +38,7 @@ object ConfigForm: TConfigForm
     AnchorSideTop.Side = asrCenter
     Left = 8
     Height = 17
-    Top = 161
+    Top = 160
     Width = 61
     Caption = 'Password:'
     ParentColor = False
@@ -51,7 +51,7 @@ object ConfigForm: TConfigForm
     Left = 77
     Height = 37
     Hint = 'Application Password'
-    Top = 151
+    Top = 150
     Width = 387
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 8
@@ -155,7 +155,7 @@ object ConfigForm: TConfigForm
     AnchorSideLeft.Control = PasswordEdit
     Left = 8
     Height = 37
-    Top = 25
+    Top = 24
     Width = 208
     Anchors = [akTop]
     ItemHeight = 0

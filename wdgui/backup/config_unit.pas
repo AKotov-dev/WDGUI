@@ -164,7 +164,7 @@ begin
   if FileExists(GetUserDir + '.config/wdgui/wdgui.conf') then
     with TIniFile.Create(GetUserDir + '.config/wdgui/wdgui.conf') do
     try
-      ProfileBox.Text := ReadString('Settings', 'Profile', 'MAIL');
+      ProfileBox.Text := ReadString('Settings', 'Profile', 'OTHER');
       ReadProfile(ProfileBox.Text);
 
       if ProfileBox.Text = 'OTHER' then ServerBox.Enabled := True;
@@ -172,6 +172,10 @@ begin
       Free;
     end;
 end;
+
+{ https://webdav.yandex.ru
+https://webdav.cloud.mail.ru
+https://app.koofr.net/dav/Koofr }
 
 //Выбор-Чтение профиля и предустановка URL сервера
 procedure TConfigForm.ProfileBoxChange(Sender: TObject);
@@ -183,7 +187,7 @@ begin
   case ProfileBox.Text of
     'MAIL': ServerBox.ItemIndex := 1;
     'KOOFR': ServerBox.ItemIndex := 2;
-    'YANDEX': ServerBox.ItemIndex := 3;
+    'YANDEX': ServerBox.ItemIndex := 0;
     'OTHER':
     begin
       ServerBox.Text := OtherServerURL;

@@ -186,3 +186,4 @@ msgstr "RClone не установлен!"
 #: unit1.srename
 msgid "Rename an object"
 msgstr "Переименовать объект"
+

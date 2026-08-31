@@ -664,7 +664,7 @@ begin
   CompDir.Items.Item[0].Selected := True;
 
   //Директория конфигураций и профилей
-  if not DirectoryExists(GetUserDir + '.config/wdgui') then
+  if not DirectoryExists(GetUserDir + '.config/wdgui/profiles') then
     ForceDirectories(GetUserDir + '.config/wdgui/profiles');
 
   IniPropStorage1.IniFileName := GetUserDir + '.config/wdgui/wdgui.conf';
