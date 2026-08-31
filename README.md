@@ -1,5 +1,5 @@
 # WDGUI
-RClone WebDAV GUI
+**RClone WebDAV GUI**
 
 - Copies files & folders (you can select Ctrl+Mouse) from the computer to the cloud and back
 - Creates directories, renames/deletes directories/files in the cloud
