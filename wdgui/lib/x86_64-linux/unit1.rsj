@@ -9,5 +9,6 @@
 {"hash":80745593,"name":"unit1.snewbucket","sourcebytes":[67,114,101,97,116,101,32,97,32,110,101,119,32,100,105,114,101,99,116,111,114,121],"value":"Create a new directory"},
 {"hash":65969690,"name":"unit1.sbucketname","sourcebytes":[68,105,114,101,99,116,111,114,121,32,110,97,109,101,58],"value":"Directory name:"},
 {"hash":258729956,"name":"unit1.srename","sourcebytes":[82,101,110,97,109,101,32,97,110,32,111,98,106,101,99,116],"value":"Rename an object"},
-{"hash":259221393,"name":"unit1.snodata","sourcebytes":[83,101,114,118,101,114,44,32,76,111,103,105,110,44,32,97,110,100,32,80,97,115,115,119,111,114,100,32,97,114,101,32,114,101,113,117,105,114,101,100,33],"value":"Server, Login, and Password are required!"}
+{"hash":259221393,"name":"unit1.snodata","sourcebytes":[83,101,114,118,101,114,44,32,76,111,103,105,110,44,32,97,110,100,32,80,97,115,115,119,111,114,100,32,97,114,101,32,114,101,113,117,105,114,101,100,33],"value":"Server, Login, and Password are required!"},
+{"hash":236949457,"name":"unit1.srclonenotfound","sourcebytes":[82,67,108,111,110,101,32,105,115,32,110,111,116,32,105,110,115,116,97,108,108,101,100,33],"value":"RClone is not installed!"}
 ]}

@@ -175,7 +175,10 @@ msgstr "Каталог уже существует!"
 msgid "Overwrite existing objects?"
 msgstr "Перезаписать существующие объекты?"
 
+#: unit1.srclonenotfound
+msgid "RClone is not installed!"
+msgstr "RClone не установлен!"
+
 #: unit1.srename
 msgid "Rename an object"
 msgstr "Переименовать объект"
-

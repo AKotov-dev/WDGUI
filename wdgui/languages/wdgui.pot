@@ -157,6 +157,10 @@ msgstr ""
 msgid "Overwrite existing objects?"
 msgstr ""
 
+#: unit1.srclonenotfound
+msgid "RClone is not installed!"
+msgstr ""
+
 #: unit1.srename
 msgid "Rename an object"
 msgstr ""

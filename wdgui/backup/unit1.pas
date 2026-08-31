@@ -85,8 +85,7 @@ resourcestring
   SBucketName = 'Directory name:';
   SRename = 'Rename an object';
   SNoData = 'Server, Login, and Password are required!';
-  SNoSettings =
-    'To connect to the server, enter its URL, Login, and Password for the WebDAV service in the settings...';
+  SRCloneNotFound = 'RClone is not installed!';
 
 var
   MainForm: TMainForm;
@@ -100,6 +99,31 @@ uses config_unit, about_unit, lsfoldertrd, S3CommandTRD;
   { TMainForm }
 
 
+//Проверка установки RClone
+function CheckRCloneInstalled(out Version: string): boolean;
+var
+  FullOutput: string;
+  Lines: TStringList;
+begin
+  Version := '';
+
+  Result := RunCommand('rclone1', ['--version'], FullOutput, [poWaitOnExit, poUsePipes]);
+
+  if not Result then Exit;
+
+  Lines := TStringList.Create;
+  try
+    Lines.Text := FullOutput;
+
+    while Lines.Count > 3 do
+      Lines.Delete(3);
+
+    Version := Trim(Lines.Text);
+  finally
+    Lines.Free;
+  end;
+end;
+
 //ls в директории . (SDBox)
 procedure TMainForm.StartLS;
 var
@@ -108,7 +132,6 @@ begin
   FLSFolderThread := StartLSFolder.Create(False);
   FLSFolderThread.Priority := tpHighest; //tpHigher
 end;
-
 
 //Уровень вверх
 procedure TMainForm.UpBtnClick(Sender: TObject);
@@ -648,6 +671,8 @@ begin
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
+var
+  version: string;
 begin
   Caption := Application.Title;
   IniPropStorage1.Restore;
@@ -656,11 +681,16 @@ begin
   Panel3.Height := CopyFromPC.Height + 14;
   Panel4.Height := Panel3.Height;
 
-  //Если конфигурация создана - читаем корневой каталог на сервере
-  if FileExists(GetUserDir + '.config/wdgui/rclone.conf') then
-    StartLS
+  //Проверка установки RClone и наличия первой конфигурации
+  if CheckRCloneInstalled(version) then
+  begin
+    LogMemo.Append(version);
+    //Если конфигурация создана - читаем корневой каталог на сервере
+    if FileExists(GetUserDir + '.config/wdgui/rclone.conf') then
+      StartLS;
+  end
   else
-    LogMemo.Text := SNoSettings;
+    LogMemo.Append(SRCloneNotFound);
 end;
 
 //Создать каталог на компьютере
