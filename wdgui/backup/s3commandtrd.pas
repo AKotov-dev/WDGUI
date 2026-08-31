@@ -84,7 +84,7 @@ begin
         ExProcess.Parameters.Add('-P');
 
         // Учитывать ссылки, если копирование с компа в облако
-        if not left_panel then ExProcess.Parameters.Add('-L');
+        if left_panel = False then ExProcess.Parameters.Add('-L');
 
         // Список команд
         ExProcess.Parameters.Add(Jobs[i]);

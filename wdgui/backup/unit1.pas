@@ -72,7 +72,6 @@ type
 
 var
   left_panel: boolean;
-//  proxy: string; //Прокси глобально
 
 resourcestring
   SDelete = 'Delete selected objects?';
