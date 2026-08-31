@@ -6,6 +6,7 @@ RClone WebDAV GUI
 - Proxy settings: HTTP / Socks5 protocols (rclone >= v1.71)
 
 **Dependencies:** gtk2 rclone  
+**Prifile files:** ~/.config/wdgui/profiles/
 **Configuration files:** ~/.config/wdgui{rclone.conf,wdgui.conf}
 
 After launching, click the `Gear` and enter the `Server` (you can choose from the list), `Login` (for example, this is mail) and `Password` (for example, Mail.ru - this is the password of external applications).
