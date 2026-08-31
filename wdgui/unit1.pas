@@ -85,6 +85,8 @@ resourcestring
   SBucketName = 'Directory name:';
   SRename = 'Rename an object';
   SNoData = 'Server, Login, and Password are required!';
+  SNoSettings =
+    'To connect to the server, enter its URL, Login, and Password for the WebDAV service in the settings...';
 
 var
   MainForm: TMainForm;
@@ -654,8 +656,11 @@ begin
   Panel3.Height := CopyFromPC.Height + 14;
   Panel4.Height := Panel3.Height;
 
-  //Проверяем подключение выводим ошибки в LogMemo = StartLS (.)
-  StartLS;
+  //Если конфигурация создана - читаем корневой каталог на сервере
+  if FileExists(GetUserDir + '.config/wdgui/rclone.conf') then
+    StartLS
+  else
+    LogMemo.Text := SNoSettings;
 end;
 
 //Создать каталог на компьютере
