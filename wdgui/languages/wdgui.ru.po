@@ -167,10 +167,6 @@ msgstr "Создать новую директорию"
 msgid "Server, Login, and Password are required!"
 msgstr "Сервер, Логин и Пароль являются обязательными!"
 
-#: unit1.snosettings
-msgid "To connect to the server, enter its URL, Login, and Password for the WebDAV service in the settings..."
-msgstr "Для подключения к серверу введите его URL, Логин, и Пароль сервиса WebDAV в настройках..."
-
 #: unit1.sobjectexists
 msgid "The folder already exists!"
 msgstr "Каталог уже существует!"
@@ -182,3 +178,4 @@ msgstr "Перезаписать существующие объекты?"
 #: unit1.srename
 msgid "Rename an object"
 msgstr "Переименовать объект"
+

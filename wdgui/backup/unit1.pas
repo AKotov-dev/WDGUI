@@ -85,7 +85,8 @@ resourcestring
   SBucketName = 'Directory name:';
   SRename = 'Rename an object';
   SNoData = 'Server, Login, and Password are required!';
-  SNoSettings = 'To connect to the server, enter its URL, Login, and Password for the WebDAV service in the settings...';
+  SNoSettings =
+    'To connect to the server, enter its URL, Login, and Password for the WebDAV service in the settings...';
 
 var
   MainForm: TMainForm;

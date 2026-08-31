@@ -149,10 +149,6 @@ msgstr ""
 msgid "Server, Login, and Password are required!"
 msgstr ""
 
-#: unit1.snosettings
-msgid "To connect to the server, enter its URL, Login, and Password for the WebDAV service in the settings..."
-msgstr ""
-
 #: unit1.sobjectexists
 msgid "The folder already exists!"
 msgstr ""
