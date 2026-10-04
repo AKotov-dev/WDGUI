@@ -211,8 +211,8 @@ begin
 
     if ExtractFileExt(SaveDialog1.FileName) = '' then ext := '.tar.gpg';
 
-    StartProcess('cd ~/.config/wdgui; tar -cf - . | gpg --batch --yes --passphrase "' +
-      password + '" -c -o "' + SaveDialog1.FileName + ext + '"');
+    StartProcess('cd ~/.config/wdgui; tar -cf - . | gpg --cipher-algo AES256 --batch --yes --passphrase "'
+      + password + '" -c -o "' + SaveDialog1.FileName + ext + '"');
   end;
 end;
 

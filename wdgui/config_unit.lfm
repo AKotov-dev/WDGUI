@@ -1,7 +1,7 @@
 object ConfigForm: TConfigForm
-  Left = 323
+  Left = 335
   Height = 300
-  Top = 128
+  Top = 140
   Width = 477
   ActiveControl = ProfileBox
   Caption = 'Configuration'
