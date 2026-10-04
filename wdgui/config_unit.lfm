@@ -463,14 +463,13 @@ object ConfigForm: TConfigForm
   end
   object OpenDialog1: TOpenDialog
     DefaultExt = '.tar.gz'
-    FileName = '~'
     Filter = 'WDGUI archive (*.tar.gpg)|*.tar.gpg'
+    InitialDir = '~/'
     Options = [ofEnableSizing]
     Left = 32
     Top = 240
   end
   object SaveDialog1: TSaveDialog
-    FileName = '~'
     Filter = 'WDGUI archive (*.tar.gpg)|*.tar.gpg'
     Options = [ofOverwritePrompt, ofEnableSizing]
     Left = 120

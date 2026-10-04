@@ -156,7 +156,7 @@ object ConfigForm: TConfigForm
     AnchorSideLeft.Control = PasswordEdit
     Left = 8
     Height = 37
-    Top = 25
+    Top = 26
     Width = 208
     Anchors = [akTop]
     ItemHeight = 0
@@ -172,11 +172,11 @@ object ConfigForm: TConfigForm
   end
   object LoadBtn: TSpeedButton
     AnchorSideRight.Control = SaveBtn
-    Left = 359
-    Height = 53
+    Left = 365
+    Height = 50
     Hint = 'Load'
     Top = 8
-    Width = 53
+    Width = 50
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 4
     Glyph.Data = {
@@ -318,11 +318,11 @@ object ConfigForm: TConfigForm
   object SaveBtn: TSpeedButton
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 416
-    Height = 53
+    Left = 419
+    Height = 50
     Hint = 'Save'
     Top = 8
-    Width = 53
+    Width = 50
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 8
     Glyph.Data = {
@@ -463,14 +463,13 @@ object ConfigForm: TConfigForm
   end
   object OpenDialog1: TOpenDialog
     DefaultExt = '.tar.gz'
-    FileName = '~'
     Filter = 'WDGUI archive (*.tar.gpg)|*.tar.gpg'
+    InitialDir = '~/'
     Options = [ofEnableSizing]
     Left = 32
     Top = 240
   end
   object SaveDialog1: TSaveDialog
-    FileName = '~'
     Filter = 'WDGUI archive (*.tar.gpg)|*.tar.gpg'
     Options = [ofOverwritePrompt, ofEnableSizing]
     Left = 120

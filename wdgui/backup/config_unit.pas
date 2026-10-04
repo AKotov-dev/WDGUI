@@ -89,7 +89,7 @@ end;
 //Чтение InitialDir для OpenDialog и SaveDialog
 procedure TConfigForm.ReadDialogsInitDir;
 begin
-  if FileExists(GetUserDir + '.config/wdgui/wdgui.conf') then
+//  if FileExists(GetUserDir + '.config/wdgui/wdgui.conf') then
     with TIniFile.Create(GetUserDir + '.config/wdgui/wdgui.conf') do
     try
       OpenDialog1.InitialDir := ReadString('Settings', 'OpenDialog', GetUserDir);
@@ -102,7 +102,7 @@ end;
 //Чтение InitialDir для OpenDialog и SaveDialog
 procedure TConfigForm.WriteDialogsInitDir;
 begin
-  if FileExists(GetUserDir + '.config/wdgui/wdgui.conf') then
+//  if FileExists(GetUserDir + '.config/wdgui/wdgui.conf') then
     with TIniFile.Create(GetUserDir + '.config/wdgui/wdgui.conf') do
     try
       WriteString('Settings', 'OpenDialog', OpenDialog1.InitialDir);
