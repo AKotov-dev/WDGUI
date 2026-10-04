@@ -19,8 +19,8 @@ The passphrase can be a memorable phrase or even a short paragraph from a book. 
 
 Since the profile data is encrypted, the resulting file can be stored or shared through public cloud storage or other untrusted locations without exposing the profile credentials, provided that the passphrase is kept secure.
   
-![](https://github.com/AKotov-dev/WDGUI/blob/main/Screenshot1.png)  
+![](https://github.com/AKotov-dev/WDGUI/blob/main/Screenshot11.png)  
   
-![](https://github.com/AKotov-dev/WDGUI/blob/main/Screenshot2.png)  
+![](https://github.com/AKotov-dev/WDGUI/blob/main/Screenshot12.png)  
   
 If you don't have anything better at hand, this tool can come in handy for the job.
