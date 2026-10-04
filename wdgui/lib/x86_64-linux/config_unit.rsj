@@ -1,0 +1,7 @@
+{"version":1,"strings":[
+{"hash":208295809,"name":"config_unit.snobackup","sourcebytes":[84,104,101,32,97,114,99,104,105,118,101,32,100,111,101,115,32,110,111,116,32,99,111,114,114,101,115,112,111,110,100,32,116,111,32,87,68,71,85,73,33],"value":"The archive does not correspond to WDGUI!"},
+{"hash":241760404,"name":"config_unit.sload","sourcebytes":[68,101,99,114,121,112,116,32,97,110,100,32,76,111,97,100],"value":"Decrypt and Load"},
+{"hash":241580581,"name":"config_unit.ssave","sourcebytes":[69,110,99,114,121,112,116,32,97,110,100,32,83,97,118,101],"value":"Encrypt and Save"},
+{"hash":97278938,"name":"config_unit.sencryptpassword","sourcebytes":[69,110,116,101,114,32,101,110,99,114,121,112,116,105,111,110,32,112,97,115,115,119,111,114,100,58],"value":"Enter encryption password:"},
+{"hash":85255674,"name":"config_unit.sdecryptpassword","sourcebytes":[84,104,101,32,100,97,116,97,98,97,115,101,32,119,105,108,108,32,98,101,32,114,101,112,108,97,99,101,100,46,32,69,110,116,101,114,32,100,101,99,114,121,112,116,105,111,110,32,112,97,115,115,119,111,114,100,58],"value":"The database will be replaced. Enter decryption password:"}
+]}

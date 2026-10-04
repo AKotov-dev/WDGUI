@@ -13,10 +13,12 @@ type
   { TConfigForm }
 
   TConfigForm = class(TForm)
+    OpenDialog1: TOpenDialog;
     ProfileBox: TComboBox;
     Label5: TLabel;
     ProxyEdit: TEdit;
     Label4: TLabel;
+    SaveDialog1: TSaveDialog;
     ServerBox: TComboBox;
     Label3: TLabel;
     OkBtn: TBitBtn;
@@ -25,13 +27,20 @@ type
     PasswordEdit: TEdit;
     Label1: TLabel;
     Label2: TLabel;
+    LoadBtn: TSpeedButton;
+    SaveBtn: TSpeedButton;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormKeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
+    procedure LoadBtnClick(Sender: TObject);
     procedure OkBtnClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure ProfileBoxChange(Sender: TObject);
     procedure ReadProfile(Profile: string);
-
+    procedure SaveBtnClick(Sender: TObject);
+    procedure StartProcess(command: string);
+    procedure ReadActiveProfile;
+    procedure WriteDialogsInitDir;
+    procedure ReadDialogsInitDir;
 
   private
   var
@@ -40,6 +49,14 @@ type
   public
 
   end;
+
+  //Ресурсы перевода
+resourcestring
+  SNoBackup = 'The archive does not correspond to WDGUI!';
+  SLoad = 'Decrypt and Load';
+  SSave = 'Encrypt and Save';
+  SEncryptPassword = 'Enter encryption password:';
+  SDecryptPassword = 'The database will be replaced. Enter decryption password:';
 
 var
   ConfigForm: TConfigForm;
@@ -51,6 +68,91 @@ uses unit1;
   {$R *.lfm}
 
   { TConfigForm }
+
+//StartCommand - общая процедура запуска команд (синхронная)
+procedure TConfigForm.StartProcess(command: string);
+var
+  ExProcess: TProcess;
+begin
+  ExProcess := TProcess.Create(nil);
+  try
+    ExProcess.Executable := 'bash';
+    ExProcess.Parameters.Add('-c');
+    ExProcess.Parameters.Add(command);
+    ExProcess.Options := [poWaitOnExit];
+    ExProcess.Execute;
+  finally
+    ExProcess.Free;
+  end;
+end;
+
+//Чтение InitialDir для OpenDialog и SaveDialog
+procedure TConfigForm.ReadDialogsInitDir;
+begin
+  if FileExists(GetUserDir + '.config/wdgui/wdgui.conf') then
+    with TIniFile.Create(GetUserDir + '.config/wdgui/wdgui.conf') do
+    try
+      OpenDialog1.InitialDir := ReadString('Settings', 'OpenDialog', GetUserDir);
+      SaveDialog1.InitialDir := ReadString('Settings', 'SaveDialog', GetUserDir);
+    finally
+      Free;
+    end;
+end;
+
+//Чтение InitialDir для OpenDialog и SaveDialog
+procedure TConfigForm.WriteDialogsInitDir;
+begin
+  if FileExists(GetUserDir + '.config/wdgui/wdgui.conf') then
+    with TIniFile.Create(GetUserDir + '.config/wdgui/wdgui.conf') do
+    try
+      WriteString('Settings', 'OpenDialog', OpenDialog1.InitialDir);
+      WriteString('Settings', 'SaveDialog', SaveDialog1.InitialDir);
+    finally
+      Free;
+    end;
+end;
+
+//Читаем имя активного профиля
+procedure TConfigForm.ReadActiveProfile;
+begin
+  if FileExists(GetUserDir + '.config/wdgui/wdgui.conf') then
+    with TIniFile.Create(GetUserDir + '.config/wdgui/wdgui.conf') do
+    try
+      ProfileBox.Text := ReadString('Settings', 'Profile', 'OTHER');
+      ReadProfile(ProfileBox.Text);
+
+      if ProfileBox.Text = 'OTHER' then ServerBox.Enabled := True;
+    finally
+      Free;
+    end;
+end;
+
+//Валидация загружаемого архива (БД из *.tar.gz)
+function IsBackup(input, password: string): boolean;
+var
+  S: TStringList;
+  ExProcess: TProcess;
+begin
+  Result := True;
+  S := TStringList.Create;
+  ExProcess := TProcess.Create(nil);
+  try
+    ExProcess.Executable := 'bash';
+    ExProcess.Parameters.Add('-c');
+
+    ExProcess.Parameters.Add('gpg --batch --yes --passphrase "' +
+      password + '" --decrypt "' + input + '" | tar -tf - ' + '| grep "./wdgui.conf"');
+
+    ExProcess.Options := [poWaitOnExit, poUsePipes];
+    ExProcess.Execute;
+    S.LoadFromStream(ExProcess.Output);
+
+    if S.Count = 0 then Result := False;
+  finally
+    S.Free;
+    ExProcess.Free;
+  end;
+end;
 
 //Чтение выбранного профиля
 procedure TConfigForm.ReadProfile(Profile: string);
@@ -83,6 +185,34 @@ begin
     LoginEdit.Clear;
     PasswordEdit.Clear;
     ProxyEdit.Clear;
+  end;
+end;
+
+//Сохранить
+procedure TConfigForm.SaveBtnClick(Sender: TObject);
+var
+  password, ext: string;
+begin
+  //Если конфиг профиля отсутствует - Выйти
+  if not FileExists(GetUserDir + '.config/wdgui/wdgui.conf') then Exit;
+
+  ext := '';
+  password := '';
+
+  // Продолжаем спрашивать пароль
+  repeat
+    if not InputQuery(SSave, SEncryptPassword, password) then Exit;
+  until password <> '';
+
+  // Шифруем и сохраняем
+  if SaveDialog1.Execute then
+  begin
+    Application.ProcessMessages;
+
+    if ExtractFileExt(SaveDialog1.FileName) = '' then ext := '.tar.gpg';
+
+    StartProcess('cd ~/.config/wdgui; tar -cf - . | gpg --batch --yes --passphrase "' +
+      password + '" -c -o "' + SaveDialog1.FileName + ext + '"');
   end;
 end;
 
@@ -148,8 +278,43 @@ begin
     ConfigForm.Close;
 end;
 
+//Загрузить
+procedure TConfigForm.LoadBtnClick(Sender: TObject);
+var
+  password: string;
+begin
+  password := '';
+
+  // Продолжаем спрашивать пароль
+  repeat
+    if not InputQuery(SLoad, SDecryptPassword, password) then Exit;
+  until password <> '';
+
+  if OpenDialog1.Execute then
+  begin
+    //Проверка валидности загружаемого архива *.tar.gz
+    Application.ProcessMessages;
+    if not IsBackup(OpenDialog1.FileName, password) then
+    begin
+      MessageDlg(SNoBackup, mtWarning, [mbOK], 0);
+      Exit;
+    end;
+
+    Application.ProcessMessages;
+
+    //Расшифровка и распаковка
+    StartProcess('cd ~/.config/wdgui/; rm -rf ./*; gpg --batch --yes --passphrase "' +
+      password + '" -d "' + OpenDialog1.FileName + '" | tar -xf -');
+
+    ReadActiveProfile;
+  end;
+end;
+
 procedure TConfigForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
+  //Пишем InitialDir OpenDialog и SaveDialog
+  WriteDialogsInitDir;
+
   CloseAction := caFree;
 end;
 
@@ -157,20 +322,18 @@ end;
 procedure TConfigForm.FormShow(Sender: TObject);
 begin
   //В центр
-  ConfigForm.Left := MainForm.Left + MainForm.Width div 2 - ConfigForm.Width div 2;
-  ConfigForm.Top := MainForm.Top + MainForm.Height div 2 - ConfigForm.Height div 2;
+  Left := MainForm.Left + MainForm.Width div 2 - ConfigForm.Width div 2;
+  Top := MainForm.Top + MainForm.Height div 2 - ConfigForm.Height div 2;
+
+  //Кнопки
+  LoadBtn.Width := LoadBtn.Height;
+  SaveBtn.Width := SaveBtn.Height;
+
+  //Читаем InitialDir OpenDialog и SaveDialog
+  ReadDialogsInitDir;
 
   //Читаем имя активного профиля
-  if FileExists(GetUserDir + '.config/wdgui/wdgui.conf') then
-    with TIniFile.Create(GetUserDir + '.config/wdgui/wdgui.conf') do
-    try
-      ProfileBox.Text := ReadString('Settings', 'Profile', 'OTHER');
-      ReadProfile(ProfileBox.Text);
-
-      if ProfileBox.Text = 'OTHER' then ServerBox.Enabled := True;
-    finally
-      Free;
-    end;
+  ReadActiveProfile;
 end;
 
 { https://webdav.yandex.ru

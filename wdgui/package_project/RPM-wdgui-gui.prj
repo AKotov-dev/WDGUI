@@ -2,7 +2,7 @@
 name=wdgui
 
 [VERSION]
-version=0.1
+version=0.2
 
 [RELEASE]
 release=0.mrx10
@@ -61,8 +61,12 @@ devtool=Lazarus
 toolversion=4.4
 
 [INFO]
-0=v0.1
-1=+ Build in Lazarus-4.4
-2=+ Connecting via proxy
-3=+ Koofr cloud storage has been added
-4=+ RPM-packages for Mageia-10, Ubuntu
+0=v0.2
+1=+ Saving/Loading/Encryption of profile data (AES-256)
+2=+ RPM and DEB packages
+3=
+4=v0.1
+5=+ Build in Lazarus-4.4
+6=+ Connecting via proxy
+7=+ Koofr cloud storage has been added
+8=+ RPM-packages for Mageia-10, Ubuntu

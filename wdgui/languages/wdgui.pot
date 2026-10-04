@@ -1,6 +1,26 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: config_unit.sdecryptpassword
+msgid "The database will be replaced. Enter decryption password:"
+msgstr ""
+
+#: config_unit.sencryptpassword
+msgid "Enter encryption password:"
+msgstr ""
+
+#: config_unit.sload
+msgid "Decrypt and Load"
+msgstr ""
+
+#: config_unit.snobackup
+msgid "The archive does not correspond to WDGUI!"
+msgstr ""
+
+#: config_unit.ssave
+msgid "Encrypt and Save"
+msgstr ""
+
 #: taboutform.caption
 msgctxt "taboutform.caption"
 msgid "About"
@@ -45,12 +65,20 @@ msgstr ""
 msgid "Profile:"
 msgstr ""
 
+#: tconfigform.loadbtn.hint
+msgid "Load"
+msgstr ""
+
 #: tconfigform.passwordedit.hint
 msgid "Application Password"
 msgstr ""
 
 #: tconfigform.proxyedit.hint
 msgid "For example: http://127.0.0.1:8889"
+msgstr ""
+
+#: tconfigform.savebtn.hint
+msgid "Save"
 msgstr ""
 
 #: tmainform.addbtn.hint

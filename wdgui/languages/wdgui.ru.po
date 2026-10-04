@@ -12,6 +12,26 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.8\n"
 
+#: config_unit.sdecryptpassword
+msgid "The database will be replaced. Enter decryption password:"
+msgstr "База данных будет замещена. Введите пароль расшифровки:"
+
+#: config_unit.sencryptpassword
+msgid "Enter encryption password:"
+msgstr "Введите пароль шифрования:"
+
+#: config_unit.sload
+msgid "Decrypt and Load"
+msgstr "Расшифровать и Загрузить"
+
+#: config_unit.snobackup
+msgid "The archive does not correspond to WDGUI!"
+msgstr "Архив не соответствует WDGUI!"
+
+#: config_unit.ssave
+msgid "Encrypt and Save"
+msgstr "Зашифровать и Сохранить"
+
 #: taboutform.caption
 msgctxt "taboutform.caption"
 msgid "About"
@@ -63,6 +83,10 @@ msgstr "Прокси:"
 msgid "Profile:"
 msgstr "Профиль:"
 
+#: tconfigform.loadbtn.hint
+msgid "Load"
+msgstr "Загрузить"
+
 #: tconfigform.passwordedit.hint
 msgid "Application Password"
 msgstr "Пароль приложения"
@@ -70,6 +94,10 @@ msgstr "Пароль приложения"
 #: tconfigform.proxyedit.hint
 msgid "For example: http://127.0.0.1:8889"
 msgstr "Например: http://127.0.0.1:8889"
+
+#: tconfigform.savebtn.hint
+msgid "Save"
+msgstr "Сохранить"
 
 #: tmainform.addbtn.hint
 msgctxt "tmainform.addbtn.hint"
@@ -186,4 +214,3 @@ msgstr "RClone не установлен!"
 #: unit1.srename
 msgid "Rename an object"
 msgstr "Переименовать объект"
-
