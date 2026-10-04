@@ -464,7 +464,6 @@ object ConfigForm: TConfigForm
   object OpenDialog1: TOpenDialog
     DefaultExt = '.tar.gz'
     Filter = 'WDGUI archive (*.tar.gpg)|*.tar.gpg'
-    InitialDir = '~/'
     Options = [ofEnableSizing]
     Left = 32
     Top = 240

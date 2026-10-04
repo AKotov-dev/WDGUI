@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 322
+  Left = 413
   Height = 694
-  Top = 126
+  Top = 226
   Width = 1005
   ActiveControl = CompDir
   Caption = 'WDGUI'

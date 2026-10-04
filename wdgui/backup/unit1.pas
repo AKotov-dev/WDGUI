@@ -428,7 +428,6 @@ begin
   AboutForm.ShowModal;
 end;
 
-
 //Создание нового каталога
 procedure TMainForm.AddBtnClick(Sender: TObject);
 var
@@ -512,8 +511,7 @@ begin
   end;
 end;
 
-
-//Форма конфигурации ~/.netrc
+//Форма конфигурации профилей
 procedure TMainForm.SettingsBtnClick(Sender: TObject);
 begin
   ConfigForm := TConfigForm.Create(Application);
