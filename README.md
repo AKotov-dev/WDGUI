@@ -1,5 +1,5 @@
 # WDGUI
-**RClone WebDAV GUI**
+### RClone WebDAV GUI
 
 - Copies files & folders (you can select Ctrl+Mouse) from the computer to the cloud and back
 - Creates directories, renames/deletes directories/files in the cloud
@@ -10,7 +10,7 @@
 **Configuration files:** ~/.config/wdgui/{rclone.conf,wdgui.conf}
 
 After launching, click the “Gear” button, select a `Profile`, and enter the `Server` (it will be set automatically), the `Login` (for example, this is an email address), the `Password` (for example, Mail.ru is the password for external applications), `Proxy` (if necessary), and then click “OK”. The “OTHER” profile is designed for configuring an arbitrary connection.
-  
+
 ### Profile Data Encryption
 
 WDGUI supports saving and loading profile data. Profile files can be encrypted using **GPG with AES-256** and protected with a passphrase.
