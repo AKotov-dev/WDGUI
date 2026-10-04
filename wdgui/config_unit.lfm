@@ -154,7 +154,7 @@ object ConfigForm: TConfigForm
   end
   object ProfileBox: TComboBox
     AnchorSideLeft.Control = PasswordEdit
-    Left = 9
+    Left = 8
     Height = 37
     Top = 24
     Width = 208
