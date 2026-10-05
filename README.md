@@ -5,7 +5,7 @@
 - Creates directories, renames/deletes directories/files in the cloud
 - Proxy settings: HTTP / Socks5 protocols (rclone >= v1.71)
 
-**Dependencies:** gtk2 rclone  
+**Dependencies:** gtk2 rclone gnupg2  
 **Profile files:** ~/.config/wdgui/profiles/  
 **Configuration files:** ~/.config/wdgui/{rclone.conf,wdgui.conf}
 
