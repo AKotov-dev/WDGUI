@@ -17,7 +17,6 @@ type
     procedure UpdateUI;
   end;
 
-
 implementation
 
 uses unit1;
@@ -57,7 +56,10 @@ begin
   if FInstalled then
     MainForm.LogMemo.Append(FVersion)
   else
+  begin
+    MainForm.SettingsBtn.Enabled := False;
     MainForm.LogMemo.Append(SRCloneNotFound);
+  end;
 end;
 
 end.

@@ -95,9 +95,10 @@
       <Unit6>
         <Filename Value="rclone_check_trd.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="24"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="51"/>
         <UsageCount Value="21"/>
+        <Loaded Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="appcfg.pas"/>
@@ -156,7 +157,7 @@
         <UsageCount Value="10"/>
       </Unit13>
     </Units>
-    <JumpHistory Count="3" HistoryIndex="2">
+    <JumpHistory Count="4" HistoryIndex="3">
       <Position1>
         <Filename Value="unit1.pas"/>
         <Caret Line="101" Column="39" TopLine="100"/>
@@ -169,6 +170,10 @@
         <Filename Value="unit1.pas"/>
         <Caret Line="674" Column="64" TopLine="655"/>
       </Position3>
+      <Position4>
+        <Filename Value="unit1.pas"/>
+        <Caret Column="13"/>
+      </Position4>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

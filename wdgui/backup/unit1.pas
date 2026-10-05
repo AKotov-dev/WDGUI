@@ -99,31 +99,6 @@ uses config_unit, about_unit, lsfoldertrd, S3CommandTRD, rclone_check_trd;
   { TMainForm }
 
 
-  //Проверка установки RClone
-{ function CheckRCloneInstalled(out Version: string): boolean;
-var
-  FullOutput: string;
-  Lines: TStringList;
-begin
-  Version := '';
-
-  Result := RunCommand('rclone', ['--version'], FullOutput, [poWaitOnExit, poUsePipes]);
-
-  if not Result then Exit;
-
-  Lines := TStringList.Create;
-  try
-    Lines.Text := FullOutput;
-
-    while Lines.Count > 3 do
-      Lines.Delete(3);
-
-    Version := Trim(Lines.Text);
-  finally
-    Lines.Free;
-  end;
-end; }
-
 //ls в директории . (SDBox)
 procedure TMainForm.StartLS;
 var

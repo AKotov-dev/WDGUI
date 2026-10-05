@@ -21,7 +21,6 @@ implementation
 
 uses unit1;
 
-
 procedure TRCloneCheckThread.Execute;
 var
   FullOutput: string;
@@ -57,7 +56,11 @@ begin
   if FInstalled then
     MainForm.LogMemo.Append(FVersion)
   else
+  begin
+    MainForm.Panel3.Enabled := False;
+    MainForm.Panel4.Enabled := False;
     MainForm.LogMemo.Append(SRCloneNotFound);
+  end;
 end;
 
 end.
