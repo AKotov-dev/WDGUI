@@ -31,7 +31,7 @@ urlcopy=https://github.com/AKotov-dev/WDGUI
 license=GPLv3
 
 [DEPS]
-deps=rclone libgtk2.0-0
+deps=rclone gnupg2 libgtk2.0-0
 
 [META]
 meta=0
