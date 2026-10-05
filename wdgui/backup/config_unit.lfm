@@ -172,13 +172,13 @@ object ConfigForm: TConfigForm
   end
   object LoadBtn: TSpeedButton
     AnchorSideRight.Control = SaveBtn
-    Left = 365
+    Left = 366
     Height = 50
     Hint = 'Load'
     Top = 8
     Width = 50
     Anchors = [akTop, akRight]
-    BorderSpacing.Right = 4
+    BorderSpacing.Right = 3
     Glyph.Data = {
       36100000424D3610000000000000360000002800000020000000200000000100
       200000000000001000006400000064000000000000000000000040D5FF0C48D0

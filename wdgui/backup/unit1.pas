@@ -92,15 +92,15 @@ var
 
 implementation
 
-uses config_unit, about_unit, lsfoldertrd, S3CommandTRD;
+uses config_unit, about_unit, lsfoldertrd, S3CommandTRD, rclone_check_trd;
 
   {$R *.lfm}
 
   { TMainForm }
 
 
-//Проверка установки RClone
-function CheckRCloneInstalled(out Version: string): boolean;
+  //Проверка установки RClone
+{ function CheckRCloneInstalled(out Version: string): boolean;
 var
   FullOutput: string;
   Lines: TStringList;
@@ -122,7 +122,7 @@ begin
   finally
     Lines.Free;
   end;
-end;
+end; }
 
 //ls в директории . (SDBox)
 procedure TMainForm.StartLS;
@@ -666,6 +666,13 @@ begin
     ForceDirectories(GetUserDir + '.config/wdgui/profiles');
 
   IniPropStorage1.IniFileName := GetUserDir + '.config/wdgui/wdgui.conf';
+
+  //Если конфигурация создана - читаем корневой каталог на сервере
+  if FileExists(GetUserDir + '.config/wdgui/rclone.conf') then
+    StartLS;
+
+  //RClone установлен? Вывести версию...
+  TRCloneCheckThread.Create(False);
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
@@ -680,7 +687,7 @@ begin
   Panel4.Height := Panel3.Height;
 
   //Проверка установки RClone и наличия первой конфигурации
-  if CheckRCloneInstalled(version) then
+{  if CheckRCloneInstalled(version) then
   begin
     LogMemo.Append(version);
     //Если конфигурация создана - читаем корневой каталог на сервере
@@ -688,7 +695,7 @@ begin
       StartLS;
   end
   else
-    LogMemo.Append(SRCloneNotFound);
+    LogMemo.Append(SRCloneNotFound);}
 end;
 
 //Создать каталог на компьютере

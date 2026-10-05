@@ -9,14 +9,14 @@ uses
   Forms,
   Unit1,
   config_unit,
-  about_unit;
+  about_unit, rclone_check_trd;
 
   {$R *.res}
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title := 'WDGUI v0.2';
-  Application.Scaled := True;
+  Application.Title:='WDGUI v0.3';
+  Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
   Application.Run;

@@ -138,7 +138,8 @@ var
   ExProcess: TProcess;
   EscapedPass, EscapedFile: string;
 begin
-  Result := False; // По умолчанию считаем, что валидация не прошла
+  Result := False;
+  // По умолчанию считаем, что валидация не прошла
   ExProcess := TProcess.Create(nil);
   try
     ExProcess.Executable := 'bash';
@@ -150,8 +151,9 @@ begin
 
     // Безопасная команда. В конце проверяем код возврата всей цепочки через ${PIPESTATUS[2]}
     // PIPESTATUS[0] - gpg, PIPESTATUS[1] - tar, PIPESTATUS[2] - grep
-    ExProcess.Parameters.Add('gpg --batch --yes --passphrase ' + EscapedPass +
-      ' --decrypt ' + EscapedFile + ' 2>/dev/null | tar -tf - 2>/dev/null | grep -q "./wdgui.conf"; exit ${PIPESTATUS[2]}');
+    ExProcess.Parameters.Add('gpg --batch --yes --passphrase ' +
+      EscapedPass + ' --decrypt ' + EscapedFile +
+      ' 2>/dev/null | tar -tf - 2>/dev/null | grep -q "./wdgui.conf"; exit ${PIPESTATUS[2]}');
 
     // Убираем poUsePipes, так как мы больше не читаем поток вывода в Pascal,
     // а полагаемся на точный код возврата от самого grep/bash.
@@ -207,7 +209,8 @@ var
   password: string;
   FullFileName: string;
 begin
-  if not FileExists(IncludeTrailingPathDelimiter(GetUserDir) + '.config/wdgui/wdgui.conf') then Exit;
+  if not FileExists(IncludeTrailingPathDelimiter(GetUserDir) +
+    '.config/wdgui/wdgui.conf') then Exit;
 
   password := '';
   repeat
