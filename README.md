@@ -9,6 +9,9 @@
 **Profile files:** ~/.config/wdgui/profiles/  
 **Configuration files:** ~/.config/wdgui/{rclone.conf,wdgui.conf}
 
+> [!IMPORTANT]
+> If you store sensitive credentials, use full-disk encryption such as LUKS.
+
 After launching, click the “Gear” button, select a `Profile`, and enter the `Server` (it will be set automatically), the `Login` (for example, this is an email address), the `Password` (for example, Mail.ru is the password for external applications), `Proxy` (if necessary), and then click “OK”. The “OTHER” profile is designed for configuring an arbitrary connection.
 
 ### Profile Data Encryption
